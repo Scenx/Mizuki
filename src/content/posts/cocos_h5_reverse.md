@@ -3,7 +3,7 @@ title: 💻 Cocos H5 Web/Mobile 逆向：UUID 解码与一键下载小游戏
 published: 2025-12-04
 updated: 2025-12-04
 description: 'Cocos H5 Web/Mobile 逆向：UUID 解码与一键下载小游戏'
-image: 'assets/images/cocos_h5_reverse.png'
+image: '/images/cocos_h5_reverse.png'
 tags: [cocos, 逆向]
 category: '逆向'
 draft: false 
