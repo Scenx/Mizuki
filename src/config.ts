@@ -340,28 +340,28 @@ export const navBarConfig: NavBarConfig = {
 		// 		},
 		// 	],
 		// },
-        {
-            name: "Skills",
-            url: "/skills/",
-            icon: "material-symbols:psychology",
-            // children: [
-            //     {
-            //         name: "Projects",
-            //         url: "/projects/",
-            //         icon: "material-symbols:work",
-            //     },
-            //     {
-            //         name: "Skills",
-            //         url: "/skills/",
-            //         icon: "material-symbols:psychology",
-            //     },
-            //     {
-            //         name: "Timeline",
-            //         url: "/timeline/",
-            //         icon: "material-symbols:timeline",
-            //     },
-            // ],
-        },
+        // {
+        //     name: "Skills",
+        //     url: "/skills/",
+        //     icon: "material-symbols:psychology",
+        //     // children: [
+        //     //     {
+        //     //         name: "Projects",
+        //     //         url: "/projects/",
+        //     //         icon: "material-symbols:work",
+        //     //     },
+        //     //     {
+        //     //         name: "Skills",
+        //     //         url: "/skills/",
+        //     //         icon: "material-symbols:psychology",
+        //     //     },
+        //     //     {
+        //     //         name: "Timeline",
+        //     //         url: "/timeline/",
+        //     //         icon: "material-symbols:timeline",
+        //     //     },
+        //     // ],
+        // },
 	],
 };
 
