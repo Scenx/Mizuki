@@ -99,12 +99,12 @@ export const siteConfig: SiteConfig = {
 				// "/assets/desktop-banner/4.webp",
 				// "/assets/desktop-banner/5.webp",
 				// "/assets/desktop-banner/6.webp",
-                "https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
+                "https://www.loliapi.com/acg/?vv=1",
+				"https://www.loliapi.com/acg/?vv=2",
+				"https://www.loliapi.com/acg/?vv=3",
+				"https://www.loliapi.com/acg/?vv=4",
+				"https://www.loliapi.com/acg/?vv=5",
+				"https://www.loliapi.com/acg/?vv=6",
 			], // 桌面横幅图片
 			mobile: [
 				// "/assets/mobile-banner/1.webp",
@@ -113,12 +113,12 @@ export const siteConfig: SiteConfig = {
 				// "/assets/mobile-banner/4.webp",
 				// "/assets/mobile-banner/5.webp",
 				// "/assets/mobile-banner/6.webp",
-                "https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
-				"https://www.loliapi.com/acg/",
+                "https://www.loliapi.com/acg/?vv=1",
+				"https://www.loliapi.com/acg/?vv=2",
+				"https://www.loliapi.com/acg/?vv=3",
+				"https://www.loliapi.com/acg/?vv=4",
+				"https://www.loliapi.com/acg/?vv=5",
+				"https://www.loliapi.com/acg/?vv=6",
 			], // 移动横幅图片
 		}, // 使用本地横幅图片
 
@@ -248,98 +248,120 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		// 支持自定义导航栏链接,并且支持多级菜单,3.1版本新加
-		{
-			name: "Links",
-			url: "/links/",
-			icon: "material-symbols:link",
-			children: [
-				{
-					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
-					external: true,
-					icon: "fa6-brands:github",
-				},
-				{
-					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
-					external: true,
-					icon: "fa6-brands:bilibili",
-				},
-				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
-					external: true,
-					icon: "mdi:git",
-				},
-			],
-		},
-		{
-			name: "My",
-			url: "/content/",
-			icon: "material-symbols:person",
-			children: [
-				{
-					name: "Anime",
-					url: "/anime/",
-					icon: "material-symbols:movie",
-				},
-				{
-					name: "Diary",
-					url: "/diary/",
-					icon: "material-symbols:book",
-				},
-				{
-					name: "Gallery",
-					url: "/albums/",
-					icon: "material-symbols:photo-library",
-				},
-				{
-					name: "Devices",
-					url: "devices/",
-					icon: "material-symbols:devices",
-					external: false,
-				},
-			],
-		},
-		{
-			name: "About",
-			url: "/content/",
-			icon: "material-symbols:info",
-			children: [
-				{
-					name: "About",
-					url: "/about/",
-					icon: "material-symbols:person",
-				},
-				{
-					name: "Friends",
-					url: "/friends/",
-					icon: "material-symbols:group",
-				},
-			],
-		},
-		{
-			name: "Others",
-			url: "#",
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
-			],
-		},
+		// {
+		// 	name: "Links",
+		// 	url: "/links/",
+		// 	icon: "material-symbols:link",
+		// 	children: [
+		// 		{
+		// 			name: "GitHub",
+		// 			url: "https://github.com/matsuzaka-yuki/Mizuki",
+		// 			external: true,
+		// 			icon: "fa6-brands:github",
+		// 		},
+		// 		{
+		// 			name: "Bilibili",
+		// 			url: "https://space.bilibili.com/701864046",
+		// 			external: true,
+		// 			icon: "fa6-brands:bilibili",
+		// 		},
+		// 		{
+		// 			name: "Gitee",
+		// 			url: "https://gitee.com/matsuzakayuki/Mizuki",
+		// 			external: true,
+		// 			icon: "mdi:git",
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	name: "My",
+		// 	url: "/content/",
+		// 	icon: "material-symbols:person",
+		// 	children: [
+		// 		{
+		// 			name: "Anime",
+		// 			url: "/anime/",
+		// 			icon: "material-symbols:movie",
+		// 		},
+		// 		{
+		// 			name: "Diary",
+		// 			url: "/diary/",
+		// 			icon: "material-symbols:book",
+		// 		},
+		// 		{
+		// 			name: "Gallery",
+		// 			url: "/albums/",
+		// 			icon: "material-symbols:photo-library",
+		// 		},
+		// 		{
+		// 			name: "Devices",
+		// 			url: "devices/",
+		// 			icon: "material-symbols:devices",
+		// 			external: false,
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	name: "About",
+		// 	url: "/content/",
+		// 	icon: "material-symbols:info",
+		// 	children: [
+		// 		{
+		// 			name: "About",
+		// 			url: "/about/",
+		// 			icon: "material-symbols:person",
+		// 		},
+		// 		{
+		// 			name: "Friends",
+		// 			url: "/friends/",
+		// 			icon: "material-symbols:group",
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	name: "Others",
+		// 	url: "#",
+		// 	icon: "material-symbols:more-horiz",
+		// 	children: [
+		// 		{
+		// 			name: "Projects",
+		// 			url: "/projects/",
+		// 			icon: "material-symbols:work",
+		// 		},
+		// 		{
+		// 			name: "Skills",
+		// 			url: "/skills/",
+		// 			icon: "material-symbols:psychology",
+		// 		},
+		// 		{
+		// 			name: "Timeline",
+		// 			url: "/timeline/",
+		// 			icon: "material-symbols:timeline",
+		// 		},
+		// 	],
+		// },
+        {
+            name: "Skills",
+            url: "/skills/",
+            icon: "material-symbols:psychology",
+            // children: [
+            //     {
+            //         name: "Projects",
+            //         url: "/projects/",
+            //         icon: "material-symbols:work",
+            //     },
+            //     {
+            //         name: "Skills",
+            //         url: "/skills/",
+            //         icon: "material-symbols:psychology",
+            //     },
+            //     {
+            //         name: "Timeline",
+            //         url: "/timeline/",
+            //         icon: "material-symbols:timeline",
+            //     },
+            // ],
+        },
 	],
 };
 
