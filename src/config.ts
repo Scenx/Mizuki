@@ -10,6 +10,7 @@ import type {
 	PermalinkConfig,
 	ProfileConfig,
 	SakuraConfig,
+	ShareConfig,
 	SidebarLayoutConfig,
 	SiteConfig,
 } from "./types/config";
@@ -57,6 +58,7 @@ export const siteConfig: SiteConfig = {
 
 	bangumi: {
 		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		fetchOnDev: false, // 是否在开发环境下获取 Bangumi 数据（默认 false），获取前先执行 pnpm build 构建 json 文件
 	},
 
 	anime: {
@@ -448,8 +450,12 @@ export const commentConfig: CommentConfig = {
 	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
 	twikoo: {
 		envId: "https://twikoo.vercel.app",
-		lang: "en", // 设置 Twikoo 评论系统语言为英文
+		lang: SITE_LANG,
 	},
+};
+
+export const shareConfig: ShareConfig = {
+	enable: true, // 启用分享功能。当设置为 false 时，分享组件将不会显示在文章区域，且不会加载分享组件使用的库
 };
 
 export const announcementConfig: AnnouncementConfig = {
@@ -695,6 +701,7 @@ export const widgetConfigs = {
 	sakura: sakuraConfig,
 	fullscreenWallpaper: fullscreenWallpaperConfig,
 	pio: pioConfig, // 添加 pio 配置
+	share: shareConfig, // 添加分享配置
 } as const;
 
 export const umamiConfig = {

@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { permalinkConfig } from "../config";
-import { generatePermalinkSlug, hasCustomPermalink } from "./permalink-utils";
+import { generatePermalinkSlug } from "./permalink-utils";
 
 /**
  * 移除文件扩展名（.md, .mdx, .markdown）

@@ -1,5 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from 'astro/zod';
 
 const postsCollection = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
@@ -14,6 +15,7 @@ const postsCollection = defineCollection({
 		category: z.string().optional().nullable().default(""),
 		lang: z.string().optional().default(""),
 		pinned: z.boolean().optional().default(false),
+		priority: z.number().optional(),
 		author: z.string().optional().default(""),
 		sourceLink: z.string().optional().default(""),
 		licenseName: z.string().optional().default(""),

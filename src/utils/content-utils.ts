@@ -15,7 +15,20 @@ async function getRawSortedPosts() {
 		if (a.data.pinned && !b.data.pinned) return -1;
 		if (!a.data.pinned && b.data.pinned) return 1;
 
-		// 如果置顶状态相同，则按发布日期排序
+		// 如果置顶状态相同，优先按 Priority 排序（数值越小越靠前）
+		if (a.data.pinned && b.data.pinned) {
+			const priorityA = a.data.priority;
+			const priorityB = b.data.priority;
+			if (priorityA !== undefined && priorityB !== undefined) {
+				if (priorityA !== priorityB) return priorityA - priorityB;
+			} else if (priorityA !== undefined) {
+				return -1;
+			} else if (priorityB !== undefined) {
+				return 1;
+			}
+		}
+
+		// 否则按发布日期排序
 		const dateA = new Date(a.data.published);
 		const dateB = new Date(b.data.published);
 		return dateA > dateB ? -1 : 1;
