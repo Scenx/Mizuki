@@ -59,17 +59,34 @@ async function getAnimeModeFromConfig() {
 // 模拟延迟防止 API 限制
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function fetchSubjectPersons(subjectId) {
+async function fetchSubjectDetail(subjectId) {
 	try {
-		const response = await fetch(
-			`${API_BASE}/v0/subjects/${subjectId}/persons`,
-		);
-		if (!response.ok) return [];
-		const data = await response.json();
-		return Array.isArray(data) ? data : [];
+		const response = await fetch(`${API_BASE}/v0/subjects/${subjectId}`);
+		if (!response.ok) return null;
+		return await response.json();
 	} catch (error) {
-		return [];
+		return null;
 	}
+}
+
+function getStudioFromInfobox(infobox) {
+	if (!Array.isArray(infobox)) return "Unknown";
+
+	const targetKeys = ["动画制作", "制作", "製作", "开发"];
+
+	for (const key of targetKeys) {
+		const item = infobox.find((i) => i.key === key);
+		if (item) {
+			if (typeof item.value === "string") {
+				return item.value;
+			}
+			if (Array.isArray(item.value)) {
+				const validItem = item.value.find((v) => v.v);
+				if (validItem) return validItem.v;
+			}
+		}
+	}
+	return "Unknown";
 }
 
 async function fetchCollection(userId, type) {
@@ -87,7 +104,9 @@ async function fetchCollection(userId, type) {
 
 			if (!response.ok) {
 				if (response.status === 404) {
-					console.log(`   User ${userId} does not exist or has no data of this type.`);
+					console.log(
+						`   User ${userId} does not exist or has no data of this type.`,
+					);
 					return [];
 				}
 				throw new Error(`API Error ${response.status}`);
@@ -97,7 +116,9 @@ async function fetchCollection(userId, type) {
 
 			if (data.data && data.data.length > 0) {
 				allData = [...allData, ...data.data];
-				process.stdout.write(`   Fetched ${allData.length} records...\r`);
+				process.stdout.write(
+					`   Fetched ${allData.length} records...\r`,
+				);
 			}
 
 			if (!data.data || data.data.length < limit) {
@@ -126,35 +147,32 @@ async function processData(items, status) {
 			`[${status}] Processing progress: ${count}/${total} (${item.subject_id})\r`,
 		);
 
-		const subjectPersons = await fetchSubjectPersons(item.subject_id);
-		await delay(100);
+		const subjectDetail = await fetchSubjectDetail(item.subject_id);
+		await delay(150);
 
 		const year = item.subject?.date
 			? item.subject.date.slice(0, 4)
 			: "Unknown";
 
-		const rating = item.subject?.score
-			? Number.parseFloat(item.subject.score.toFixed(1))
-			: item.rate
-				? Number.parseFloat(item.rate.toFixed(1))
+		const rating = item.rate
+			? Number.parseFloat(item.rate.toFixed(1))
+			: item.subject?.score
+				? Number.parseFloat(item.subject.score.toFixed(1))
 				: 0;
 
 		const progress = item.ep_status || 0;
 		const totalEpisodes = item.subject?.eps || progress;
 
-		let studio = "Unknown";
-		if (Array.isArray(subjectPersons)) {
-			const priorities = ["动画制作", "製作", "制作"];
-			for (const relation of priorities) {
-				const match = subjectPersons.find(
-					(p) => p.relation === relation,
-				);
-				if (match?.name) {
-					studio = match.name;
-					break;
-				}
-			}
-		}
+		const studio = subjectDetail
+			? getStudioFromInfobox(subjectDetail.infobox)
+			: "Unknown";
+
+		const description = (
+			subjectDetail?.summary ||
+			item.subject?.short_summary ||
+			item.subject?.name_cn ||
+			""
+		).trimStart();
 
 		results.push({
 			title:
@@ -162,11 +180,7 @@ async function processData(items, status) {
 			status: status,
 			rating: rating,
 			cover: item.subject?.images?.medium || "/assets/anime/default.webp",
-			description: (
-				item.subject?.short_summary ||
-				item.subject?.name_cn ||
-				""
-			).trimStart(),
+			description: description,
 			episodes: `${totalEpisodes} episodes`,
 			year: year,
 			genre: item.subject?.tags
