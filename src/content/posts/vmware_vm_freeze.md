@@ -1,6 +1,6 @@
 ---
 title: 🖥️ VMware 虚拟机死机无法关机的快速解决办法
-published: 2025-01-17
+published: 2026-01-17
 description: 'VMware 虚拟机卡死后无法正常关机时，通过查找进程 PID 强制结束的解决方案'
 image: '/images/vmware_vm_freeze.png'
 tags: [vmware]
