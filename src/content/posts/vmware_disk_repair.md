@@ -1,6 +1,7 @@
 ---
 title: 🔧 vmware虚拟机意外断电导致磁盘损坏centos无法开机解决方案
 published: 2025-12-17
+updated: 2025-12-17
 description: 'VMware 虚拟机断电后 CentOS 无法启动，使用 xfs_repair 修复磁盘'
 image: '/images/vmware_disk_repair.png'
 tags: [vmware]

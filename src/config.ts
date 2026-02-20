@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 60, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
+		hue: 230, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: false, // 对访问者隐藏主题色选择器
 	},
 
@@ -210,12 +210,9 @@ export const siteConfig: SiteConfig = {
 	showCoverInContent: true, // 在文章内容页显示文章封面
 	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	favicon: [
-		// 留空以使用默认 favicon
-		// {
-		//   src: '/favicon/icon.png',    // 图标文件路径
-		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
-		//   sizes: '32x32',              // 可选，图标大小
-		// }
+		{
+			src: "https://www.loliapi.com/acg/?vv=9",
+		},
 	],
 
 	// 字体配置
@@ -521,10 +518,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 		{
 			// 组件类型：用户资料组件
 			type: "profile",
-			// 是否启用该组件
-			enable: false,
-			// 组件显示顺序（数字越小越靠前）
-			order: 1,
 			// 组件位置："top" 表示固定在顶部
 			position: "top",
 			// CSS 类名，用于应用样式和动画
@@ -535,10 +528,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 		{
 			// 组件类型：公告组件
 			type: "announcement",
-			// 是否启用该组件（现在通过统一配置控制）
-			enable: false,
-			// 组件显示顺序
-			order: 2,
 			// 组件位置："top" 表示固定在顶部
 			position: "top",
 			// CSS 类名
@@ -600,9 +589,9 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 	// 侧栏组件布局配置
 	components: {
-		left: ["profile", "announcement", "categories", "tags"],
+		left: ["categories", "tags"],
 		right: ["site-stats", "calendar"],
-		drawer: ["profile", "announcement", "categories", "tags"],
+		drawer: ["categories", "tags"],
 	},
 
 	// 默认动画配置

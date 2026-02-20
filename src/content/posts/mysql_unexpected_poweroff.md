@@ -1,18 +1,20 @@
 ---
-title: 🔧 MySQL 因为断电导致数据损坏无法启动的处理方式及数据恢复方法
+title: 🔧 MySQL 5.x 因为断电导致数据损坏无法启动的处理方式及数据恢复方法
 published: 2025-12-06
-updated: 2025-12-06
-description: 'MySQL 因为断电导致数据损坏无法启动的处理方式及数据恢复方法'
+updated: 2026-02-20
+description: 'MySQL 5.x 因为断电导致数据损坏无法启动的处理方式及数据恢复方法'
 image: '/images/mysql_unexpected_poweroff.png'
 tags: [mysql, 数据库]
 category: '数据库'
 draft: false
 ---
-# 🔧 MySQL 因为断电导致数据损坏无法启动的处理方式及数据恢复方法
+# 🔧 MySQL 5.x 因为断电导致数据损坏无法启动的处理方式及数据恢复方法
 
 > 💡 **问题描述:** 当 MySQL 服务器遭遇意外断电时，可能会导致 InnoDB 存储引擎的事务日志文件和数据文件损坏，表现为 **MySQL 服务无法启动**。
 >
 > **核心解决方案**是备份并删除 MySQL 数据目录下的 `ib_logfile0`、`ib_logfile1`、`ibdata1` 三个文件，然后重启 MySQL 服务，让 MySQL 自动重新生成这些文件。
+>
+> ⚠️ **适用版本：MySQL 5.x（低于 MySQL 8.0）。** 此方案依赖 `innodb_file_per_table` 为开启状态（MySQL 5.6.6+ 默认开启），即每个表的数据独立存储在 `.ibd` 文件中。开启后删除 `ibdata1` 不会丢失用户数据，MySQL 会自动重建系统表空间。
 
 ---
 
