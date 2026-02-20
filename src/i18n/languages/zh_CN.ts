@@ -19,6 +19,7 @@ export const zh_CN: Translation = {
 	[Key.recentPosts]: "最新文章",
 	[Key.postList]: "文章列表",
 	[Key.tableOfContents]: "目录",
+	[Key.tocEmpty]: "当前页面没有目录",
 
 	// 公告栏
 	[Key.announcement]: "公告",
@@ -26,7 +27,7 @@ export const zh_CN: Translation = {
 
 	[Key.comments]: "评论",
 	[Key.friends]: "友链",
-	[Key.friendsSubtitle]: "发现更多优秀网站",
+	[Key.friendsSubtitle]: "发现更多优质网站",
 	[Key.friendsSearchPlaceholder]: "搜索友链名称或描述...",
 	[Key.friendsFilterAll]: "全部",
 	[Key.friendsNoResults]: "未找到匹配的友链",
@@ -72,7 +73,12 @@ export const zh_CN: Translation = {
 	[Key.animeStudio]: "制作",
 	[Key.animeEmpty]: "暂无追番数据",
 	[Key.animeEmptyBangumi]: "请检查 Bangumi 配置或网络连接",
+	[Key.animeEmptyBilibili]: "请检查 Bilibili 配置或网络连接",
 	[Key.animeEmptyLocal]: "请在 src/data/anime.ts 文件中添加番剧信息",
+	[Key.animeConfigBilibili]:
+		"请在 src/config.ts 文件中设置您的 Bilibili vmid",
+	[Key.animeConfigBangumi]:
+		"请在 src/config.ts 文件中设置您的 Bangumi userId",
 
 	// 短文页面
 	[Key.diarySubtitle]: "随时随地，分享生活",
@@ -139,7 +145,7 @@ export const zh_CN: Translation = {
 	[Key.projectLiveDemo]: "在线演示",
 	[Key.projectSourceCode]: "源代码",
 	[Key.projectDescription]: "项目描述",
-	[Key.projectStatus]: "状态",
+	[Key.projectStatus]: "项目状态",
 	[Key.projectStatusCompleted]: "已完成",
 	[Key.projectStatusInProgress]: "进行中",
 	[Key.projectStatusPlanned]: "计划中",
@@ -283,7 +289,7 @@ export const zh_CN: Translation = {
 	[Key.siteStatsCategoryCount]: "分类",
 	[Key.siteStatsTagCount]: "标签",
 	[Key.siteStatsTotalWords]: "总字数",
-	[Key.siteStatsRunningDays]: "运行时长",
+	[Key.siteStatsRunningDays]: "运行天数",
 	[Key.siteStatsLastUpdate]: "最后活动",
 	[Key.siteStatsDaysAgo]: "{days} 天前",
 	[Key.siteStatsDays]: "{days} 天",
@@ -325,4 +331,12 @@ export const zh_CN: Translation = {
 	[Key.profileStatsPageViews]: "浏览量",
 	[Key.profileStatsVisits]: "访问次数",
 	[Key.profileStatsUnavailable]: "统计不可用",
+
+	// 页面访问量统计
+	[Key.pageViewsLoading]: "统计加载中...",
+	[Key.pageViewsUnavailable]: "统计不可用",
+
+	// 布局切换按钮
+	[Key.switchToGridMode]: "切换到网格模式",
+	[Key.switchToListMode]: "切换到列表模式",
 };
