@@ -197,7 +197,7 @@ Model/auth provider → Custom Provider
 API Base URL → 填写你的 API 地址
 How to provide API key? → Paste API key now
 API Key → 填写你的 API Key
-Endpoint compatibility → OpenAI-compatible
+Endpoint compatibility → OpenAI-compatible (除非明确知晓是 Anthropic-compatible 协议)
 Model ID → 填写模型 ID (如 claude-opus-4-6)
 Endpoint ID → 直接回车
 Model alias → 直接回车
