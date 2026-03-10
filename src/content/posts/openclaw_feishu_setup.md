@@ -252,6 +252,7 @@ vi /root/.openclaw/openclaw.json
     "groupPolicy": "open"
   }
   }
+}
 ```
 
 ### 19. 创建飞书群组
