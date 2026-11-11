@@ -2,6 +2,14 @@
 
 > 📝 本文档记录了 Mizuki Pages 项目的工作流程，用于快速恢复项目上下文。
 
+## ESA 部署约定
+
+每次本项目或 `wrgmam` 提交推送后，以及用户单独指定部署时，必须一起发布 `mizuki` 和 `wrgmam` 到全部五个 ESA 账户（国际一站、国内四站），共十项。**哪怕其中一个项目没改，也必须一起更新，不按 Git diff 跳过。** 用户要求只在本地准备、不推送时不触发发布。
+
+Windows 的 `E:\github` 拉取两个仓库最新 master，构建后通过官方 ESA CLI 本地上传，不再依赖 ESA Git 授权构建。日常只更新版本，保留项目与域名绑定。`mizuki` 绑定 `blog.gmai.top`，`wrgmam` 绑定 `wr.gmai.top`。
+
+权威流程及脚本维护在同级 `wrgmam` 仓库：`docs/ESA-Windows部署.md`、`scripts/deploy-esa-windows.ps1`、`scripts/verify-esa-deploy.py`。部署脚本默认五站两个项目；验收脚本核验全部十项，必须全部通过才能报告完成，不能用公网单个域名的响应替代逐账户验收。
+
 ---
 
 ## 📁 项目结构
@@ -205,4 +213,4 @@ git push
 
 ---
 
-**最后更新：** 2025-12-06
+**最后更新：** 2026-11-12
